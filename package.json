@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+      "/Volumes/Workspace/Github/jitsi-meet-electron"
+    ]
+  ],
+  "_from": "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+  "_id": "jitsi-meet-electron-utils@github:jitsi/jitsi-meet-electron-utils#d606da675a3e8f2e327bcf12b15120b188002d0f",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/jitsi-meet-electron-utils",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+    "rawSpec": "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+    "saveSpec": "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+    "fetchSpec": null,
+    "gitCommittish": "v2.0.12"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "github:jitsi/jitsi-meet-electron-utils#d606da675a3e8f2e327bcf12b15120b188002d0f",
+  "_spec": "github:jitsi/jitsi-meet-electron-utils#v2.0.12",
+  "_where": "/Volumes/Workspace/Github/jitsi-meet-electron",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/jitsi/jitsi-meet-electron-utils/issues"
+  },
+  "dependencies": {
+    "jitsi-meet-logger": "github:jitsi/jitsi-meet-logger#v1.0.0",
+    "mac-screen-capture-permissions": "^1.1.0",
+    "nan": "^2.14.0",
+    "postis": "^2.2.0",
+    "prebuild-install": "^5.3.0",
+    "robotjs": "0.6.0",
+    "semver": "7.1.1"
+  },
+  "description": "Utilities for jitsi-meet-electron project",
+  "devDependencies": {
+    "eslint": ">=3",
+    "eslint-plugin-jsdoc": "*",
+    "mocha": "^8.2.1",
+    "prebuild": "^9.1.1",
+    "precommit-hook": "3.0.0"
+  },
+  "gypfile": true,
+  "homepage": "https://github.com/jitsi/jitsi-meet-electron-utils#readme",
+  "keywords": [
+    "jingle",
+    "webrtc",
+    "xmpp",
+    "electron",
+    "jitsi-meet",
+    "utils"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "jitsi-meet-electron-utils",
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jitsi/jitsi-meet-electron-utils.git"
+  },
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
+    "lint": "eslint .",
+    "test": "TESTING=true mocha",
+    "validate": "npm ls"
+  },
+  "version": "2.0.12"
+}
