@@ -75,6 +75,15 @@ class ScreenShareIndicatorHook {
     }
 
     _createScreenShareIndicator() {
+        const sourceType = data.sourceType;
+        const sourceId = data.sourceId;
+        if (sourceType !== 'screen' || !sourceId) return ;
+
+        const tks = sourceId.split(':')
+        if (tks.length < 1 || !tks[1]) return ;
+
+        const deviceId = tks[1];
+
         const commonWindowOption = {
             transparent: true,
             minimizable: true,
@@ -91,7 +100,15 @@ class ScreenShareIndicatorHook {
                 nodeIntegration: true
             },
         }
-        let display = electron.screen.getPrimaryDisplay();
+
+        let display = null;
+        const displays = electron.screen.getAllDisplays();
+
+        displays.forEach(d => {
+            if (d.id === parseInt(deviceId)) display = d;
+        })
+
+        if (!display) return ;
         const bounds = display.workArea;
         for (const no in this._indicatorTypes) {
             const type = this._indicatorTypes[no];
