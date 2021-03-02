@@ -46,7 +46,7 @@ class ScreenShareIndicatorHook {
     _onScreenSharingEvent(event, { data }) {
         switch (data.name) {
             case SCREEN_SHARE_EVENTS.OPEN_TRACKER:
-                this._createScreenShareIndicator();
+                this._createScreenShareIndicator(data);
                 break;
             case SCREEN_SHARE_EVENTS.CLOSE_TRACKER:
                 if (this._indicators.top) {
@@ -74,7 +74,7 @@ class ScreenShareIndicatorHook {
         }
     }
 
-    _createScreenShareIndicator() {
+    _createScreenShareIndicator(data) {
         const sourceType = data.sourceType;
         const sourceId = data.sourceId;
         if (sourceType !== 'screen' || !sourceId) return ;
