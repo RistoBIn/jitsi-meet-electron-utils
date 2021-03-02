@@ -108,6 +108,8 @@ class ScreenShareRenderHook {
     _onScreenSharingStatusChanged(event) {
         if (event.on) {
             this._isScreenSharing = true;
+            const sourceId = this._iframe.contentWindow.APP.conference.localVideo?.sourceId;
+            const sourceType = this._iframe.contentWindow.APP.conference.localVideo?.sourceType;
             // Send event which should open an always on top tracker window from the main process.
             ipcRenderer.send(SCREEN_SHARE_EVENTS_CHANNEL, {
                 data: {
