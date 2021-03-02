@@ -19,7 +19,7 @@ class ScreenShareIndicatorHook {
     constructor(jitsiMeetWindow) {
         this._jitsiMeetWindow = jitsiMeetWindow;
         this._onScreenSharingEvent = this._onScreenSharingEvent.bind(this);
-        this._borderWidth = 5;
+        this._borderWidth = 22;
         this._indicatorTypes = ["top", "bottom", "left", "right"];
         this._indicators = {
             top: null,
@@ -77,8 +77,8 @@ class ScreenShareIndicatorHook {
     _createScreenShareIndicator(data) {
         const sourceType = data.sourceType;
         const sourceId = data.sourceId;
-        if (sourceType !== 'screen' || !sourceId) return ;
-
+        if (sourceType !== 'screen' || !sourceId)    return ;
+      
         const tks = sourceId.split(':')
         if (tks.length < 1 || !tks[1]) return ;
 
@@ -107,8 +107,8 @@ class ScreenShareIndicatorHook {
         displays.forEach(d => {
             if (d.id === parseInt(deviceId)) display = d;
         })
-
-        if (!display) return ;
+        
+        if (!display)   return ;
         const bounds = display.workArea;
         for (const no in this._indicatorTypes) {
             const type = this._indicatorTypes[no];

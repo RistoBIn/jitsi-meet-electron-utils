@@ -77,8 +77,8 @@ class ScreenShareMainHook {
         this._screenShareTracker = new electron.BrowserWindow({
             height: TRACKER_SIZE.height,
             width: TRACKER_SIZE.width,
-            x: (display.workArea.width - TRACKER_SIZE.width) / 2,
-            y: display.workArea.height - TRACKER_SIZE.height - 5,
+            x: (display.bounds.width - TRACKER_SIZE.width) / 2,
+            y: display.bounds.height - TRACKER_SIZE.height,
             transparent: true,
             minimizable: true,
             maximizable: false,
@@ -87,11 +87,12 @@ class ScreenShareMainHook {
             fullscreen: false,
             fullscreenable: false,
             skipTaskbar: false,
+            hasShadow: false,
             frame: false,
             show: false,
             webPreferences: {
                 nodeIntegration: true
-            }
+            },
         });
 
         this._screenShareTracker.on('closed', () => {
@@ -105,8 +106,7 @@ class ScreenShareMainHook {
             }
         });
 
-        this._screenShareTracker
-            .loadURL(`file://${__dirname}/screenSharingTracker.html?sharingIdentity=${this._identity}`);
+        this._screenShareTracker.loadURL(`file://${__dirname}/screenSharingTracker.html?sharingIdentity=${this._identity}`);
     }
 
     /**
